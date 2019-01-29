@@ -8,7 +8,7 @@ describe("1. About Arrays", () => {
     const multiTypeArray = [0, 1, "two", () => { return 3; }, {value1: 4, value2: 5}, [6, 7]];
     expect(multiTypeArray[0]).toBe(0);
     expect(multiTypeArray[2]).toBe("two");
-    expect(multiTypeArray[3]()).toBe(() =. {return 3;};
+    expect(multiTypeArray[3]()).toBe(() => {return 3;});
     expect(multiTypeArray[4].value1).toBe({value1: 4, value2: 5});
     expect(multiTypeArray[4]["value2"]).toBe(5);
     expect(multiTypeArray[5][0]).toBe(6);
