@@ -8,8 +8,8 @@ describe("1. About Arrays", () => {
     const multiTypeArray = [0, 1, "two", () => { return 3; }, {value1: 4, value2: 5}, [6, 7]];
     expect(multiTypeArray[0]).toBe(0);
     expect(multiTypeArray[2]).toBe("two");
-    expect(multiTypeArray[3]()).toBe(() => {return 3;});
-    expect(multiTypeArray[4].value1).toBe({value1: 4, value2: 5});
+    expect(multiTypeArray[3]()).toBe(3);
+    expect(multiTypeArray[4].value1).toBe(4);
     expect(multiTypeArray[4]["value2"]).toBe(5);
     expect(multiTypeArray[5][0]).toBe(6);
   });
@@ -41,7 +41,7 @@ describe("1. About Arrays", () => {
 
     tenEmptyElementArray.length = 5;
     expect(tenEmptyElementArray.length).toBe(5);
-    expect(tenEmptyElementArray).toEqual(5);
+    expect(tenEmptyElementArray).toEqual([undefined, undefined, undefined, undefined, undefined]);
   });
 
   it("should slice arrays", () => {
@@ -49,9 +49,9 @@ describe("1. About Arrays", () => {
 
     expect(array.slice(0, 1)).toEqual(["peanut"]);
     expect(array.slice(0, 2)).toEqual(["peanut", "butter"]);
-    expect(array.slice(2, 2)).toEqual(["butter"]);
+    expect(array.slice(2, 2)).toEqual([undefined]);
     expect(array.slice(2, 20)).toEqual(["and", "jelly"]);
-    expect(array.slice(3, 0)).toEqual("jelly");
+    expect(array.slice(3, 0)).toEqual([]);
     expect(array.slice(3, 100)).toEqual(["jelly"]);
     expect(array.slice(5, 1)).toEqual([]);
   });
@@ -68,7 +68,7 @@ describe("1. About Arrays", () => {
 
     let assignedArray = array;
     assignedArray[5] = "changed in assignedArray";
-    expect(array[5]).toBe("5");
+    expect(array[5]).toBe("changed in assignedArray");
 
     let copyOfArray = array.slice();
     copyOfArray[3] = "changed in copyOfArray";

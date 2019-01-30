@@ -39,7 +39,7 @@ describe("3. About Objects", () => {
       mastermind: "James Wood",
       henchman: "Adam West",
       birthYear: 1970,
-      calculateAge: () => {
+      calculateAge: function() {
         return currentYear - this.birthYear;
       }
     };
