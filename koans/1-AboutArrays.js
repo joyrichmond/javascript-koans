@@ -49,7 +49,7 @@ describe("1. About Arrays", () => {
 
     expect(array.slice(0, 1)).toEqual(["peanut"]);
     expect(array.slice(0, 2)).toEqual(["peanut", "butter"]);
-    expect(array.slice(2, 2)).toEqual([undefined]);
+    expect(array.slice(2, 2)).toEqual([]);
     expect(array.slice(2, 20)).toEqual(["and", "jelly"]);
     expect(array.slice(3, 0)).toEqual([]);
     expect(array.slice(3, 100)).toEqual(["jelly"]);
@@ -100,14 +100,14 @@ describe("1. About Arrays", () => {
   it("should write a function that returns an array of the first two elements of that array", () => {
     // be sure the function does not modify the original array
     const firstTwoElements = array => {
-      return [array[0, 1]];
+      return array.slice(0, 2);
     };
     const firstArray = [1,2,3];
     const secondArray = [7,6,5];
 
-    expect(firstTwoElements(firstArray)).toEqual([1,2]);
+    expect(firstTwoElements(firstArray)).toEqual([1, 2]);
     expect(firstArray).toEqual([1,2,3]);
-    expect(firstTwoElements(secondArray)).toEqual([7,6]);
+    expect(firstTwoElements(secondArray)).toEqual([7, 6]);
     expect(secondArray).toEqual([7,6,5]);
   });
 
@@ -118,7 +118,7 @@ describe("1. About Arrays", () => {
     };
 
     expect(thirdElement([1,2,3])).toEqual(3);
-    expect(thirdElement([7,6])).toEqual(null);
+    expect(thirdElement([7,6])).toEqual(undefined);
   });
 
   it("should write a function that creates a new array of a certain length", () => {
@@ -127,7 +127,7 @@ describe("1. About Arrays", () => {
     //The elements of that array should be the first parameter
     //This could be done using a for loop or the fill array function
     const makeArray = (element, length) => {
-      return array.fill(element, 0, length-1);
+      return Array(length).fill(element);
     };
 
     expect(makeArray("hello", 4)).toEqual(["hello", "hello", "hello", "hello"]);
