@@ -18,7 +18,7 @@ describe("7. About Applying What We Have Learnt", () => {
 
     let i,j,hasMushrooms, productsICanEat = [];
 
-    for (i = 0; i < products.length; i+=1) {
+    for (i = 0; i < products.length; i += 1) {
       if (products[i].containsNuts === false) {
         hasMushrooms = false;
         for (j = 0; j < products[i].ingredients.length; j+=1) {
@@ -30,16 +30,17 @@ describe("7. About Applying What We Have Learnt", () => {
       }
     }
 
-    expect(productsICanEat.length).toBe(FILL_ME_IN);
+    expect(productsICanEat.length).toBe(1);
   });
 
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", () => {
 
     let productsICanEat = [];
+    productsICanEat.push(products.filter(x => x.containsNuts === false).some(x => x.ingredients !== "mushrooms"));
 
     /* solve using filter() & some() / every() */
 
-    expect(productsICanEat.length).toBe(FILL_ME_IN);
+    expect(productsICanEat.length).toBe(1);
   });
   /*********************************************************************************/
 
@@ -47,12 +48,24 @@ describe("7. About Applying What We Have Learnt", () => {
   it("should find the largest palindrome made from the product of two 3 digit numbers", () => {
     const isPalidrome = function(item) {
       // a palindrome is a string that is the same forwards and backwards
-      return FILL_ME_IN;
+      if(item = item.reverse()) {
+        return true;
+      }
     };
 
     const largestPalidrome = () => {
-      let listOfAllThreeDigitNumbers = [FILL_ME_IN];
-      return FILL_ME_IN;
+      let listOfAllThreeDigitNumbers = [];
+      for(i = 100; i < 1000; i++) {
+        listOfAllThreeDigitNumbers.push(i);
+      }
+      let threeDigitProducts = [];
+      for(i = 0; i <= listOfAllThreeDigitNumbers.length; i++) {
+        for(j = 0; j <= listOfAllThreeDigitNumbers.length; i++) {
+          threeDigitProducts.push(i * j);
+        }
+      }
+      let threeDigitPalidromes = threeDigitProducts.filter(x => isPalidrome(x));
+      threeDigitPalidromes.pop();
     };
     largestPalidrome();
     
