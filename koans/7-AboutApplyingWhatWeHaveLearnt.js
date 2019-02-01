@@ -46,9 +46,9 @@ describe("7. About Applying What We Have Learnt", () => {
 
   // EXTRA CHALLENGES
   it("should find the largest palindrome made from the product of two 3 digit numbers", () => {
-    const isPalidrome = function(item) {
+    const isPalidrome = function(str) {
       // a palindrome is a string that is the same forwards and backwards
-      if(item = item.reverse()) {
+      if(str === str.split("").reverse) {
         return true;
       }
     };
@@ -58,13 +58,14 @@ describe("7. About Applying What We Have Learnt", () => {
       for(i = 100; i < 1000; i++) {
         listOfAllThreeDigitNumbers.push(i);
       }
-      let threeDigitProducts = [];
+      let threeDigitPalidromes = [];
       for(i = 0; i <= listOfAllThreeDigitNumbers.length; i++) {
         for(j = 0; j <= listOfAllThreeDigitNumbers.length; i++) {
-          threeDigitProducts.push(i * j);
+          if (isPalidrome(i * j)) {
+            threeDigitPalidromes.push(i * j);
+          }
         }
       }
-      let threeDigitPalidromes = threeDigitProducts.filter(x => isPalidrome(x));
       threeDigitPalidromes.pop();
     };
     largestPalidrome();
