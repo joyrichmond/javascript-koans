@@ -64,7 +64,7 @@ describe("2. About Functions", () => {
 
     expect(returnSecondArg("only give first arg")).toBe(undefined);
 
-    const returnAllArgs = () => {
+    const returnAllArgs = (...arguments) => {
       let argsArray = [];
       for (let i = 0; i < arguments.length; i += 1) {
         argsArray.push(arguments[i]);
@@ -72,7 +72,7 @@ describe("2. About Functions", () => {
       return argsArray.join(",");
     }
 
-    expect(returnAllArgs("first", "second", "third")).toBe("first", "second", "third");
+    expect(returnAllArgs("first", "second", "third")).toBe("first,second,third");
   });
 
   it("should return undefined if no return value is specified", () => {
