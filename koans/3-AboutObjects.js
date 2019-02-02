@@ -51,7 +51,7 @@ describe("3. About Objects", () => {
   it("should know that properties can be added and deleted", () => {
     const megalomaniac = { mastermind : "Agent Smith", henchman: "Agent Smith" };
 
-    expect(megalomaniac["secretary"]).toBe(null);
+    expect(megalomaniac["secretary"]).toBe(undefined);
 
     megalomaniac.secretary = "Agent Smith";
     expect(megalomaniac["secretary"]).toBe("Agent Smith");
@@ -73,13 +73,13 @@ describe("3. About Objects", () => {
     expect(simpleCircle.colour).toBe(undefined);
     expect(colouredCircle.colour).toBe("red");
 
-    Circle.prototype.describe = () => {
+    Circle.prototype.describe = function() {
       return "This circle has a radius of: " + this.radius;
     };
 
-    expect(simpleCircle.describe()).toBe(10);
-    expect(colouredCircle.describe()).toBe(5);
-  });
+    expect(simpleCircle.describe()).toBe("This circle has a radius of: 10");
+    expect(colouredCircle.describe()).toBe("This circle has a radius of: 5");
+});
 
   it("should create your own simple object", () => {
     const myNewObject = {prop1: "a property!", prop2: [4,3,2], prop3: function() {return "a property that is a method!";}};
