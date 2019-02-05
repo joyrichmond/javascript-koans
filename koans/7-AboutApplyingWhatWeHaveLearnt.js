@@ -45,30 +45,25 @@ describe("7. About Applying What We Have Learnt", () => {
   /*********************************************************************************/
 
   // EXTRA CHALLENGES
-  it("should find the largest palindrome made from the product of two 3 digit numbers", () => {
-    const isPalidrome = function(str) {
+  it("should find the largest palindrome made from the product of two 3 digit numbers")
+
       // a palindrome is a string that is the same forwards and backwards
-      if(str === str.split("").reverse) {
-        return true;
-      }
-    };
+    const isPalidrome = function(x) {
+        return x.toString() == [...x.toString()].reverse().join("");
+       }
 
     const largestPalidrome = () => {
-      let listOfAllThreeDigitNumbers = [];
-      for(i = 100; i < 1000; i++) {
-        listOfAllThreeDigitNumbers.push(i);
-      }
-      let threeDigitPalidromes = [];
-      for(i = 0; i <= listOfAllThreeDigitNumbers.length; i++) {
-        for(j = 0; j <= listOfAllThreeDigitNumbers.length; i++) {
-          if (isPalidrome(i * j)) {
-            threeDigitPalidromes.push(i * j);
+      let currentLargest = 0;
+      for (i = 999; i >= 100; i--) {
+          for (j = 999; j >= 100; j--) {
+              if ((isPalidrome(i * j)) && ((i * j) > currentLargest)) {
+                  currentLargest = i * j;
+              }
           }
-        }
       }
-      threeDigitPalidromes.pop();
-    };
-    largestPalidrome();
+      return currentLargest;
+  };
+  largestPalidrome();
     
     expect(largestPalidrome()).toBe(906609);
   });
@@ -78,6 +73,5 @@ describe("7. About Applying What We Have Learnt", () => {
   });
 
   it("should find the 10001st prime", () => {
-
+  
   });
-});
